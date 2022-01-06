@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <title>Algorithm visualiser</title>
+
+    <!-- Additional CSS Files -->
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/fullpage.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/owl.carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/templatemo-style.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
+    </head>
+    
+    <body>
+    
+    <div id="video">
+        <div class="preloader">
+            <div class="preloader-bounce">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <header id="header">
+            <div class="container-fluid">
+                <div class="navbar">
+                    <a href="{% url 'chacha20_input' %}" id="logo" title="Elegance by TemplateMo">
+                        ChaCha20
+                    </a>
+                    <div class="navigation-row">
+                        <nav id="navigation">
+                            <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                            <div class="nav-box navbar-collapse">
+                                <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                    <li ><a href="{% url 'index' %}">Home</a></li>
+                                    <li data-menuanchor="slide01" class="active"><a href="#slide01">Entered Data</a></li>
+                                    <li data-menuanchor="slide02"><a href="#slide02">Constant</a></li>                                 
+                                    <li data-menuanchor="slide03"><a href="#slide03">Key & Nonce</a></li>
+                                    <li data-menuanchor="slide04"><a href="#slide04">Matrix assembly</a></li>
+                                    <li data-menuanchor="slide05"><a href="#slide05">Quater Round</a></li>   
+                                    <li data-menuanchor="slide06"><a href="#slide06">Encryption</a></li> 
+                                    <li data-menuanchor="slide07"><a href="#slide07">Decryption</a></li>
+                                    <li ><a href="{% url 'chacha20_input' %}">New Input</a></li>                                 
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <video autoplay muted loop id="myVideo">
+          <source src="{% static '/images/black.mp4' %}" type="video/mp4">
+        </video>
+
+        <div id="fullpage" class="fullpage-default">
+            <div class="section animated-row" data-section="slide01">
+                <div class="section-inner">
+                    <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                        <span>Entered data are firstly converted to binary and paded to desired length
+                            (using integer representation).</span>
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 30px" >
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                <i class="fa fa-file-text"></i> {{message}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                <i class="fa fa-key"></i> {{key}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <div class = "col-md-1">
+                            <div class="arrow-row justify-content-center">
+                                <i class="fa fa-arrow-right" style="padding-top: 40px;"></i>
+                            </div>
+                            <div class="arrow-row">
+                                <i class="fa fa-arrow-right" style="padding-top: 100px;"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="contact-section">
+                                        <div class="row">
+                                            <div class="col-md-12 animate" data-animate="fadeInUp">
+                                                <div class="contact-box">
+                                                    <div class="contact-row">
+                                                        <i class="fa fa-file-text"></i> {{message_binary}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="contact-section">
+                                        <div class="row">
+                                            <div class="col-md-12 animate" data-animate="fadeInUp">
+                                                <div class="contact-box">
+                                                    <div class="contact-row">
+                                                        <i class="fa fa-key"></i> {{key_binary}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                            <span>This simple diagram shows steps necessary to obtain <strong>CT</strong> from <strong>PT</strong>.</span>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center" style="padding-top: 30px">
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box" >
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide01">INPUT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide02">Constant</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide03">K,Nonce</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide04">Matrix</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide05">Quater</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide06">ENC.</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide07">DEC.</a>                                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                        <span>We will use integer representation further on, but remember that operations like XOR or shifts are done in bitwise manner.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide02">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                                <span>Now, we need to convert <strong>constant</strong> from ASCII character by character</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                constant = {{constant_initial}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <i class="fa fa-arrow-down"></i>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                e = {{constant_integer.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                x = {{constant_integer.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                p = {{constant_integer.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                a = {{constant_integer.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n = {{constant_integer.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                d = {{constant_integer.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                "space" = {{constant_integer.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                3 = {{constant_integer.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                2 = {{constant_integer.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                - = {{constant_integer.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                b = {{constant_integer.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                y = {{constant_integer.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                t = {{constant_integer.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                e = {{constant_integer.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                "space" = {{constant_integer.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k = {{constant_integer.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                                <span>Then we concatenate every row therefore we get four <strong>32 bit long values</strong> <br>c1-c4.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c1 = {{iconstant.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c2 = {{iconstant.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c3 = {{iconstant.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c4 = {{iconstant.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide03">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 wide-col-laptop">
+                            <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                                <span>Next we split <strong>256-bit long</strong> key into eight <strong>32-bit long values</strong> k1-k8.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k1 = {{keys.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k2 = {{keys.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k3 = {{keys.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k4 = {{keys.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k5 = {{keys.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k6 = {{keys.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k7 = {{keys.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k8 = {{keys.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wide-col-laptop">
+                            <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                                <span>Now we generate <strong>96-bit long</strong> random number - <strong>nonce</strong>.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                nonce = {{nonce.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                                <span>And we split nonce into three <strong>32-bit long</strong> parts n1-n3.</span>
+                            </div>          
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n1 = {{nonce.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n2 = {{nonce.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n3 = {{nonce.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide04">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="arrow-row" style="font-size: 20px;" >
+                                <span>Using generated values we now assembly matrix defined as :</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c4
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k4
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k6
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k8
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                Block No.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                n3
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="arrow-row" style="font-size: 20px;" >
+                                <span>Matrix with filled values:</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{iconstant.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{iconstant.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{iconstant.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" style="padding-top: 30px;"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{iconstant.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{keys.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{nonce.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{nonce.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{nonce.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide05">
+                <div class="section-inner">
+                    <div class="arrow-row" style="font-size: 20px;">
+                        <span>Encryption process consists of 20 rounds alternating between <strong>column</strong> and <strong>diagonal</strong> rounds.<br>
+                        In column round function we modify columns of matrix separatively and in diagonal round we modify diagonals of matrix separatively both using 
+                        so called <strong>quater round</strong> function, which takes four 32-bit long inputs (a,b,c,d) from matrix and returns four modified 32-bit outputs as defined : </span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                a = (a + b) % 32
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                d = d XOR a
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                d = d << 16
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c = (c + d) % 32
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                b = b XOR c
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                b = b << 12
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                a = (a + b) % 32
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                d = d XOR a
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                d = d << 8
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                c = (c + d) % 32
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                b = b XOR c
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                b = b << 7
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>     
+                        </div>                        
+                    </div>
+                    <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                        <span>Return a, b, c, d</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide06">
+                <div class="section-inner">
+                    <div class="arrow-row" style="font-size: 18px; padding-top: 20px;">
+                        <span>As previously mentioned encryption process consists of 20 rounds alternating between <strong>column</strong> and <strong>diagonal</strong> rounds 
+                              using <strong>quater</strong> round four times in each round. So after 10 <strong>column</strong> rounds and 10 <strong>diagonal</strong>
+                              rounds we get final matrix (FM). To obtain <strong>CT</strong> we XOR corresponding parts of <strong>FM</strong> and <strong>PT</strong> matrix (PTM), 
+                              which was created by splitting <strong>PT</strong> into <strong>32-bit</strong> long parts.
+                        </span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row" style="padding: 0px;">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="padding-top: 200px;">
+                                <span>&oplus;</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="contact-section">
+                            <div class="row">
+                                <div class="col-md-12 animate" data-animate="fadeInUp">
+                                    <div class="contact-box">
+                                        <div class="contact-row">
+                                            CT = {{CT_ASCII}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide07">
+                <div class="section-inner">
+                    <div class="arrow-row" style="font-size: 18px; padding-top: 20px;">
+                        <span>In case of <strong>ChaCha</strong> decryption process is same as encryption process. Therefore we generate matrix in 20 rounds (10 <strong>column</strong> rounds and 10 <strong>diagonal</strong>
+                            rounds), using <strong>quater</strong> round four times in each round. That way we get final matrix (FM). To obtain <strong>PT</strong> we XOR corresponding parts of <strong>FM</strong> and <strong>CT</strong> matrix (CTM), 
+                              which was created by splitting <strong>CT</strong> into <strong>32-bit</strong> long parts.
+                        </span>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row" style="padding: 0px;">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{matrixFinal.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="padding-top: 200px;">
+                                <span>&oplus;</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate"  data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                {{PT_decipher.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="contact-section">
+                            <div class="row">
+                                <div class="col-md-12 animate" data-animate="fadeInUp">
+                                    <div class="contact-box">
+                                        <div class="contact-row">
+                                            PT = {{PT_ASCII}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <script src="{% static '/js/jquery.js' %}"></script>
+
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static '/js/fullpage.min.js' %}"></script>
+
+    <script src="{% static '/js/scrolloverflow.js' %}"></script>
+
+    <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static '/js/jquery.inview.min.js' %}"></script>
+
+    <script src="{% static '/js/form.js' %}"></script>
+
+    <script src="{% static '/js/custom.js' %}"></script>
+
+
+  </body>
+</html>

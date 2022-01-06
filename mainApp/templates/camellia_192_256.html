@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <title>Algorithm visualiser</title>
+
+    <!-- Additional CSS Files -->
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/fullpage.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/owl.carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/templatemo-style.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
+    </head>
+    
+    <body>
+    
+    <div id="video">
+        <div class="preloader">
+            <div class="preloader-bounce">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <header id="header">
+            <div class="container-fluid">
+                <div class="navbar">
+                    <a href="{% url 'camellia_input' %}" id="logo" title="Elegance by TemplateMo">
+                        Camellia 192 & 256-bit key
+                    </a>
+                    <div class="navigation-row">
+                        <nav id="navigation">
+                            <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                            <div class="nav-box navbar-collapse">
+                                <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                    <li ><a href="{% url 'index' %}">Home</a></li>
+                                    <li data-menuanchor="slide01" class="active"><a href="#slide01">Entered Data</a></li>
+                                    <li data-menuanchor="slide02"><a href="#slide02">Ka & Kb</a></li>                                 
+                                    <li data-menuanchor="slide03"><a href="#slide03">KW, KL</a></li>
+                                    <li data-menuanchor="slide04"><a href="#slide04">K 1.</a></li>   
+                                    <li data-menuanchor="slide05"><a href="#slide05">K 2.</a></li>
+                                    <li data-menuanchor="slide06"><a href="#slide06">Encryption</a></li>    
+                                    <li data-menuanchor="slide07"><a href="#slide07">Decryption</a></li>
+                                    <li ><a href="{% url 'camellia_input' %}">New Input</a></li>                                 
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <video autoplay muted loop id="myVideo">
+          <source src="{% static '/images/black.mp4' %}" type="video/mp4">
+        </video>
+
+        <div id="fullpage" class="fullpage-default">
+            <div class="section animated-row" data-section="slide01">
+                <div class="section-inner">
+                    <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                        <span>Entered data are firstly converted to binary and paded to desired length of 128 bits 
+                            (using integer representation).</span>
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 30px" >
+                        <div class="col-md-5">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                <i class="fa fa-file-text"></i> {{message}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                <i class="fa fa-key"></i> {{key}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <div class = "col-md-1">
+                            <div class="arrow-row justify-content-center">
+                                <i class="fa fa-arrow-right" style="padding-top: 40px;"></i>
+                            </div>
+                            <div class="arrow-row">
+                                <i class="fa fa-arrow-right" style="padding-top: 100px;"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="contact-section">
+                                        <div class="row">
+                                            <div class="col-md-12 animate" data-animate="fadeInUp">
+                                                <div class="contact-box">
+                                                    <div class="contact-row">
+                                                        <i class="fa fa-file-text"></i> {{message_binary}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="contact-section">
+                                        <div class="row">
+                                            <div class="col-md-12 animate" data-animate="fadeInUp">
+                                                <div class="contact-box">
+                                                    <div class="contact-row">
+                                                        <i class="fa fa-key"></i> {{key_binary}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                            <span>This simple diagram shows steps necessary to obtain <strong>CT</strong> from <strong>PT</strong>.</span>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center" style="padding-top: 30px">
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box" >
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide01">INPUT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide02">KA,KB</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide03">KW,KL</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide04">K1.</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide05">K2.</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide06">ENC.</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="arrow-row" style="font-size: 40px; padding-top: 10px;">
+                                
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row justify-content-center">
+                                                <a href="#slide07">DEC.</a>                                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
+                        <span>We will use integer representation further on, but remember that operations like XOR or shifts are done in bitwise manner.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide02">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="arrow-row" style="font-size: 15px;" data-animate="fadeInUp">
+                                <span>Firstly, we split key <strong>K</strong> into left <strong>KL</strong> and right <strong>KR</strong> part.</span> <br>
+                                <span>In case of 256 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong> is equal to <strong>right 128 bits</strong> of <strong> K.</strong></span>
+                                <span>In case of 192 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong> is equal to <strong>right 64 bits</strong> + <strong> negation of right 64 bits</strong> of <strong>K.</strong></span> <br>
+                                <span> This is done to ensure compatibility of 192 and 256 bit keys</span>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Then we XOR <strong>KL</strong> with <strong>KR</strong>.</span>
+                                <span> And split <strong>KL</strong> to left <strong>KLL</strong> and right <strong>KLR</strong> part.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                KLL = {{KLL1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                KRL = {{KLR1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Then we put <strong>KLL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants0-1</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>. 
+                                    Next we <strong>XOR</strong> concatenated <stong>KLL</stong> and <strong>KLR</strong> with <strong>KL</strong> from <strong>begining</strong> of this process and split newly obtained <strong>KL</strong> back to <strong>KLL</strong> and <strong>KLR</strong>.
+                                    Lastly we repeat <strong>2 iterations</strong> long process of putting <strong>KLL</strong> through <strong>F-function</strong> with <strong>constants2-4</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>.
+                                    <strong> Ka</strong> is obtained as concatenation of <strong>KLL</strong> and <strong>KLR</strong>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                Ka = {{Ka}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>This process is very similiar to <strong>Ka key</strong> generation for <strong>128</strong> bit key.
+                                 For further reference please see 128 bit key <strong>Ka</strong> generation</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wide-col-laptop">
+                            <div class="arrow-row" style="font-size: 15px;" data-animate="fadeInUp">
+                                <span><strong>Kb</strong> key is generated in very simial fashion. 
+                                    Firstly we <strong>XOR</strong> <strong>Ka</strong> and <strong>KR</strong> and we separate this result (KR) to <strong>KRL</strong> and <strong>KRR</strong></span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                KRL = {{KLL2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                KRR = {{KLR2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Then we put <strong>KRL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants5-6</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KRR</strong> and swap <strong>KRL</strong> and <strong>KRR</strong>.
+                                    After that we concatenate <strong>KRL</strong> and <strong>KRR</strong> to obtain <strong>Kb</strong>.
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                Kb = {{Kb}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide03">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="arrow-row">
+                                <span><strong>Kw1</strong> subkey is generated as left 64 bits from key <strong>KL</strong>, which is left 128 bits of 256 bit long key <strong>K</strong>.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kw1 = {{kw.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kw2</strong> subkey is generated as right 64 bits from key <strong>KL</strong>.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kw2 = {{kw.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kw3</strong> subkey is generated as left 64 bits from key <strong>Kb</strong> circularly rotated by 111 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kw3 = {{kw.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kw3</strong> subkey is generated as right 64 bits from key <strong>Kb</strong> circularly rotated by 111 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kw4 = {{kw.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="arrow-row">
+                                <span><strong>Kl1</strong> subkey is generated as left 64 bits from key <strong>KR</strong>, which is right 128 bits of 256 bit long key <strong>K</strong> circularly rotated by 30 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl1= {{kl.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kl3</strong> subkey is generated as left 64 bits from key <strong>KL</strong>, circularly rotated by 60 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl3 = {{kl.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kl5</strong> subkey is generated as left 64 bits from key <strong>Ka</strong>, circularly rotated by 77 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl5 = {{kl.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="arrow-row" style="padding-bottom: 25px;">
+                                <span><strong>Kl2</strong> subkey is generated as right 64 bits from key <strong>KR</strong>, circularly rotated by 30 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl2= {{kl.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kl4</strong> subkey is generated as right 64 bits from key <strong>KL</strong>, circularly rotated by 60 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl4 = {{kl.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span><strong>Kl6</strong> subkey is generated as right 64 bits from key <strong>Ka</strong>, circularly rotated by 77 bits to the left.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                kl6 = {{kl.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide04">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k1 = {{k.0}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k4 = {{k.3}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k7 = {{k.6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k10 = {{k.9}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k13 = {{k.12}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k2 = {{k.1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k5 = {{k.4}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k8 = {{k.7}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k11 = {{k.10}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k14 = {{k.13}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k3 = {{k.2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k6 = {{k.5}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k9 = {{k.8}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k12 = {{k.11}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k15 = {{k.14}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="arrow-row">
+                    <span><strong>K</strong> subkeys are generated from <strong>right</strong>, <strong>left parts</strong> of keys <strong>K</strong>, <strong>Ka</strong>, <strong>Kb</strong>  and circular rotations of these parts by <strong>15</strong>, <strong>30</strong>, <strong>45</strong>, <strong>60</strong>, <strong>77</strong>, <strong>94</strong> and <strong>111</strong> bits to the left.</span>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide05">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k16 = {{k.15}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k19 = {{k.18}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k22 = {{k.21}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k17 = {{k.16}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k20 = {{k.19}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k23 = {{k.22}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wide-col-laptop">
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k18 = {{k.17}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k21 = {{k.20}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                k23 = {{k.22}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="arrow-row">
+                    <span><strong>K</strong> subkeys are generated from <strong>right</strong>, <strong>left parts</strong> of keys <strong>K</strong>, <strong>Ka</strong>, <strong>Kb</strong>  and circular rotations of these parts by <strong>15</strong>, <strong>30</strong>, <strong>45</strong>, <strong>60</strong>, <strong>77</strong>, <strong>94</strong> and <strong>111</strong> bits to the left.</span>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide06">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                <span>First we split plaintext <strong>PT</strong> into left <strong>PTL</strong> and right <strong>PTR</strong> part. <br>Then we XOR <strong>PTL</strong> with <strong>kw0</strong> and <strong>PTR</strong> with <strong>kw1</strong> and we get <strong>PTL1</strong> nad <strong>PTR1</strong> .</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PT = {{PT}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Next we put <strong>PTL</strong> throught <strong>F-function</strong> with <strong>kl1-6</strong> subkeys, XOR the result with <strong>PTR1-6</strong> and store the result as <strong>PTr1-6</strong>.</span>
+                                <br>
+                                <span>Then we swap <strong>PTL1</strong> and <strong>PTR1</strong>, same way we did in case of <strong>Ka</strong> key generation.</span>
+                                <br>
+                                <span>We repeat this process 6 times and then we put <strong>PTL6</strong> through <strong>FL-function</strong> and <strong>PTR6</strong> through <strong>FL-1-function</strong>.</span>
+                                <span>As result we get final <strong>PTL6</strong> and <strong>PTR6</strong></span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL1 = {{PTL_init}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR1 = {{PTR_init}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                <i class="fa fa-ellipsis-v  "></i> 5
+                            </div>
+                            <div class="contact-section" style="padding-top: 20px;">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL6 = {{PTLs6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR6 = {{PTRs6}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>We repeat this entire process <strong>2</strong> more times.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="arrow-row">
+                                <span>This way after <strong>18</strong> more iterations and <strong>1</strong> more call of FL and FL-1 function we end up with <br> <strong>PTL24</strong> and <strong>PTR24</strong>.</span> 
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL24 = {{PTLs24}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR24 = {{PTRs24}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                We swap <strong>PTL24</strong> and <strong>PTR24</strong>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL18 = {{PTRs24}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR18 = {{PTLs24}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Then we XOR <strong>PTL24</strong> with <strong>kw3</strong> and <strong>PTR24</strong> with <strong>kw4</strong>.</span>
+                                <br>
+                                <span>And concatenate the results to obtain cipher text <strong>CT</strong><span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                CT = {{CT_final}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>We can then "translate" <strong>CT</strong> back into character representation</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                CT = {{CT_final_ASCII}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide06">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                <span>Generally, decryption process is encryption process in reverse manner.</span> <br>
+                                <span>First we split cipher text <strong>CT</strong> into left <strong>CTL</strong> and right <strong>CTR</strong> part. <br>Then we XOR <strong>PTL</strong> with <strong>kw3</strong> and <strong>PTR</strong> with <strong>kw4</strong>.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                CT = {{CT_final}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Next we repeat the encryption process in reverse order so we put <strong>PTL</strong> throught <strong>F-function 18</strong> times with <strong>kl18-1</strong> subkeys, each time we XOR the result of <strong>F-function</strong> with <strong>PTR18-1</strong>.</span>
+                                <br>
+                                <span>Then we swap <strong>PTL</strong> and <strong>PTR</strong>, same way we did in case of <strong>Ka</strong> key generation.</span>
+                                <br>
+                                <span>Remember that after every six iterations of putting PTL throught <strong>F-function</strong>, XOR-ing the result with <strong>PTR</strong> and swaping <strong>PTL</strong> and <strong>PTR</strong> we put <strong>PTL</strong> through <strong>FL-function</strong> and <strong>PTR</strong> through <strong>FL-1-function</strong>.</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL18 = {{PTL_init_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR18 = {{PTR_init_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                <i class="fa fa-ellipsis-v  "></i> 18
+                            </div>
+                            <div class="contact-section" style="padding-top: 20px;">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL1 = {{PTLs1_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR1 = {{PTRs1_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="arrow-row">
+                                <span>Now we <strong>swap</strong> <strong>PTL</strong> and <strong>PTR</strong>.</span> <br>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL1 = {{PTRs1_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR1 = {{PTLs1_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row" data-animate="fadeInUp">
+                                <span>And we <strong>XOR</strong> <strong>PTL</strong> with <strong>kw1</strong> and <strong>PTR</strong> with <strong>kw2</strong>.</span> 
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTL18 = {{PTL_final_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PTR18 = {{PTR_final_decipher}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>Lastly we concatenate the results to obtain cipher text <strong>CT</strong><span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PT = {{PT_final}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrow-row">
+                                <span>We can then "translate" <strong>PT</strong> back into character representation</span>
+                            </div>
+                            <div class="contact-section">
+                                <div class="row">
+                                    <div class="col-md-12 animate" data-animate="fadeInUp">
+                                        <div class="contact-box">
+                                            <div class="contact-row">
+                                                PT = {{PT_final_ASCII}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+    <script src="{% static '/js/jquery.js' %}"></script>
+
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static '/js/fullpage.min.js' %}"></script>
+
+    <script src="{% static '/js/scrolloverflow.js' %}"></script>
+
+    <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static '/js/jquery.inview.min.js' %}"></script>
+
+    <script src="{% static '/js/form.js' %}"></script>
+
+    <script src="{% static '/js/custom.js' %}"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <title>Algorithm visualiser</title>
+
+    <!-- Additional CSS Files -->
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/fullpage.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/owl.carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/templatemo-style.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
+    </head>
+    
+    <body>
+    
+    <div id="video">
+        <div class="preloader">
+            <div class="preloader-bounce">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <header id="header">
+            <div class="container-fluid">
+                <div class="navbar">
+                    <a href="#" id="logo" title="Elegance by TemplateMo">
+                        Cryptology algorithm visualiser
+                    </a>
+                    <div class="navigation-row">
+                        <nav id="navigation">
+                            <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                            <div class="nav-box navbar-collapse">
+                                <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                    <li data-menuanchor="slide01" class="active"><a href="#slide01">Home</a></li>
+                                    <li data-menuanchor="slide02"><a href="#slide02">About</a></li>
+                                    <li data-menuanchor="slide03"><a href="#slide03">Basics</a></li>
+                                    <li data-menuanchor="slide04"><a href="#slide04">Algorithms</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <video autoplay muted loop id="myVideo">
+          <source src="{% static '/images/black.mp4' %}" type="video/mp4">
+        </video>
+
+        <div id="fullpage" class="fullpage-default">
+
+            <div class="section animated-row" data-section="slide01">
+                <div class="section-inner">
+                    <div class="welcome-box">
+                        <span class="welcome-first animate" data-animate="fadeInUp">Hello, welcome to</span>
+                        <span class="welcome-first animate" data-animate="fadeInUp">Cryptology algorithm visualiser</span>
+                        <!--<h1 class="welcome-title animate" data-animate="fadeInUp">Cryptology algorithm visualiser</h1>-->
+                        <p class="animate" data-animate="fadeInUp">Your tool for visualising cryptology algorithms step-by-step.</p>
+                        <div class="scroll-down next-section animate data-animate="fadeInUp><img src="{% static '/images/mouse_scroll.png' %}" alt=""><span>Scroll Down</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide02">
+                <div class="section-inner">
+                    <div class="about-section">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 wide-col-laptop">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="about-contentbox">
+                                            <div class="animate" data-animate="fadeInUp">
+                                                <span>About</span>
+                                                <h2>Motivation for page ?</h2>
+                                                <p>This web page was created as part of bachelor's degree thesis to help you learn and understand basic principles of cryptology. Credits go to <strong>Ing. Petr Žáček</strong> for his help and leadership. </p>
+                                            </div>
+                                            <div class="facts-list owl-carousel">
+                                                <div class="item animate" data-animate="fadeInUp">
+                                                    <div class="counter-box">
+                                                        <i class="fa fa-unlock-alt counter-icon" aria-hidden="true"></i><span class="count-number">3</span> Algorithms
+                                                    </div>
+                                                </div>
+                                                <div class="item animate" data-animate="fadeInUp">
+                                                    <div class="counter-box">
+                                                        <i class="fa fa-graduation-cap counter-icon" aria-hidden="true"></i><span class="count-number">UTB</span> University
+                                                    </div>
+                                                </div>
+                                                <div class="item animate" data-animate="fadeInUp">
+                                                    <div class="counter-box">
+                                                        <i class="fa fa-calendar counter-icon" aria-hidden="true"></i><span class="count-number">1</span> Working Years
+                                                    </div>
+                                                </div>
+                                                <div class="item animate" data-animate="fadeInUp">
+                                                    <div class="counter-box">
+                                                        <i class="fa fa-users counter-icon" aria-hidden="true"></i><span class="count-number">2</span> Team Members
+                                                    </div>
+                                                </div>
+                                                <div class="item animate" data-animate="fadeInUp">
+                                                    <div class="counter-box">
+                                                        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="python" class="svg-inline--fa fa-python counter-icon" width="30px" height="30px" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"></path></svg>
+                                                        <span class="count-number">PYTHON</span> Powered by
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <figure class="about-img animate" data-animate="fadeInUp"><img src="{% static '/images/about_image2.jpeg' %}" class="rounded" alt=""></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide03">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 wide-col-laptop">
+                            <div class="title-block animate" data-animate="fadeInUp">
+                                <span>BASICS</span>
+                                <h2>What is cryptology about ?</h2>
+                            </div>
+                            <div class="col-md-8 offset-md-2">
+                                <div class="testimonials-section">
+                                    <div class="testimonials-slider owl-carousel">
+                                        <div class="item animate" data-animate="fadeInUp">
+                                            <div class="testimonial-item">
+                                                <div class="client-row">
+                                                    <img src="{% static '/images/cryptology_img.jpg' %}" class="rounded-circle" alt="cryptology_img">
+                                                </div>
+                                                <div class="testimonial-content">
+                                                    <h4>Cryptology</h4>
+                                                    <p>Generally, cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages or data.
+                                                        <br>
+                                                        Modern cryptography is devided into 2 parts : Symmetric and Asymmetric cryptography.
+                                                    </p>
+                                                </div>                                           
+                                            </div>
+                                        </div>
+                                        <div class="item animate" data-animate="fadeInUp">
+                                            <div class="testimonial-item">
+                                                <div class="client-row">
+                                                    <img src="{% static '/images/symetric_key_img.jpeg' %}" class="rounded-circle" alt="profile 2">
+                                                </div>
+                                                <div class="testimonial-content">
+                                                    <h4>Symmetric cryptography</h4>
+                                                    <p>Symmetric cryptography is a cryptographic system which uses the same cryptographic key for both encryption of plaintext and decryption of ciphertext.<p>
+                                                </div>                                           
+                                            </div>
+                                        </div>
+                                        <div class="item animate" data-animate="fadeInUp">
+                                            <div class="testimonial-item">
+                                                <div class="client-row">
+                                                    <img src="{% static '/images/asymmetric_key_img.jpeg' %}" class="rounded-circle" alt="profile 3">
+                                                </div>
+                                                <div class="testimonial-content">
+                                                    <h4>Asymmetric cryptography</h4>
+                                                    <p>Asymmetric cryptography is a cryptographic system which uses pairs of keys: public keys (which may be known to others), and private keys (which may never be known by any except the owner).</p>
+                                                </div>                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section animated-row" data-section="slide04">
+                <div class="section-inner">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 wide-col-laptop">
+                            <div class="title-block animate" data-animate="fadeInUp">
+                                <span><h2>Algorithms</h2></span>
+                            </div>
+                            <div class="services-section">
+                                <div class="services-list owl-carousel">
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box" onclick="location.href='http://localhost:8000/camellia_input'">
+                                            <span class="service-icon"><i class="fa fa-th" aria-hidden="true"></i></span>
+                                            <h3>Camellia</h3>
+                                            <p style="text-align:center">- created in 2000 by colaboration of MEC a NTT<br>- uses symmetric key <br>- uses fixed block size of 128 bits <br>- key size of 128, 192 and 256 bits</p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box" onclick="location.href='http://localhost:8000/kuznyechik_input'">
+                                            <span class="service-icon"><i class="fa fa-th" aria-hidden="true"></i></span>
+                                            <h3>Kuznyechik</h3>
+                                            <p style="text-align:center">- created in 2015 as a part of GOST standard<br>- uses symmetric key <br>- uses fixed block size of 128 bits <br>- key size of 256 bits </p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box" onclick="location.href='http://localhost:8000/chacha20_input'">
+                                            <span class="service-icon"><i class="fa fa-arrows-h" aria-hidden="true"></i></span>
+                                            <h3>ChaCha</h3>
+                                            <p style="text-align:center">- created in 2008 by D. J. Bernstein as improved Salsa cipher<br>- stream cipher <br> - uses 256 bit key <br>- works on 512 bit long inputs </p>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                            <h3>Digital signature</h3>
+                                            <p>- mathematical scheme for verifying the authenticity of digital messages or documents. <br>- uses asymmetric (public) key <br>- consists of: key generation algorithm, signing algorithm and decryption algorithm</p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-hdd-o" aria-hidden="true"></i></span>
+                                            <h3>One-Time Pad</h3>
+                                            <p>-  encryption technique that cannot be cracked, if executed correctly <br>- uses pre-shared symmetric key of the same size as, or longer than, the message being sent. <br>- key can be used only once and needs to be truly random</p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                                            <h3>LSB-Steganography</h3>
+                                            <p>- steganography technique in which we hide messages inside an image by replacing Least significant bit of image with the bits of message to be hidden </p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+                                            <h3>CIPHER</h3>
+                                            <p>Nullam auctor, justo vitae accumsan ultrices, arcu ex molestie massa, eu maximus enim tortor vitae quam. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item animate" data-animate="fadeInUp">
+                                        <div class="service-box">
+                                            <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+                                            <h3>CIPHER</h3>
+                                            <p>Nullam auctor, justo vitae accumsan ultrices, arcu ex molestie massa, eu maximus enim tortor vitae quam. </p>
+                                        </div>
+                                    </div>
+                                -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    <script src="{% static '/js/jquery.js' %}"></script>
+
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static '/js/fullpage.min.js' %}"></script>
+
+    <script src="{% static '/js/scrolloverflow.js' %}"></script>
+
+    <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static '/js/jquery.inview.min.js' %}"></script>
+
+    <script src="{% static '/js/form.js' %}"></script>
+
+    <script src="{% static '/js/custom.js' %}"></script>
+
+
+  </body>
+</html>
