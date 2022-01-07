@@ -8,8 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
-    <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
-    <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
 
     <title>Algorithm visualiser</title>
 
@@ -67,11 +65,8 @@
             </div>
         </header>
 
-        <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"], "nativeControlsForTouch": false}'>
-            <source src="http://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest" type="application/vnd.ms-sstr+xml" />
-            <p class="amp-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
-            </p>
+        <video autoplay muted loop id="myVideo">
+          <source src="{% static '/images/black.mp4' %}" type="video/mp4">
         </video>
 
         <div id="fullpage" class="fullpage-default">
@@ -226,43 +221,6 @@
                                             <p style="text-align:center">- created in 2008 by D. J. Bernstein as improved Salsa cipher<br>- stream cipher <br> - uses 256 bit key <br>- works on 512 bit long inputs </p>
                                         </div>
                                     </div>
-                                    <!--
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box">
-                                            <span class="service-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                            <h3>Digital signature</h3>
-                                            <p>- mathematical scheme for verifying the authenticity of digital messages or documents. <br>- uses asymmetric (public) key <br>- consists of: key generation algorithm, signing algorithm and decryption algorithm</p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box">
-                                            <span class="service-icon"><i class="fa fa-hdd-o" aria-hidden="true"></i></span>
-                                            <h3>One-Time Pad</h3>
-                                            <p>-  encryption technique that cannot be cracked, if executed correctly <br>- uses pre-shared symmetric key of the same size as, or longer than, the message being sent. <br>- key can be used only once and needs to be truly random</p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box">
-                                            <span class="service-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-                                            <h3>LSB-Steganography</h3>
-                                            <p>- steganography technique in which we hide messages inside an image by replacing Least significant bit of image with the bits of message to be hidden </p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box">
-                                            <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-                                            <h3>CIPHER</h3>
-                                            <p>Nullam auctor, justo vitae accumsan ultrices, arcu ex molestie massa, eu maximus enim tortor vitae quam. </p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box">
-                                            <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-                                            <h3>CIPHER</h3>
-                                            <p>Nullam auctor, justo vitae accumsan ultrices, arcu ex molestie massa, eu maximus enim tortor vitae quam. </p>
-                                        </div>
-                                    </div>
-                                -->
                                 </div>
                             </div>
                         </div>
@@ -283,7 +241,9 @@
 
     <script src="{% static '/js/jquery.inview.min.js' %}"></script>
 
+
     <script src="{% static '/js/custom.js' %}"></script>
+
 
   </body>
 </html>
