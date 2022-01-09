@@ -90,6 +90,9 @@
                                             <div class="contact-row">
                                                 <i class="fa fa-lock"></i> After submitting data press "ENCRYPT".
                                             </div>
+                                            <div>
+                                                <button class="btn" onclick="getRandomKey(32)">RANDOM KEY</button>   
+                                            </div>  
                                         </div>
                                     </div>
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
@@ -99,14 +102,11 @@
                                                 <input type="Text" class="form-control" name="Key" id="key" required placeholder="Key" maxlength="32">
                                             </div>
                                             <div class="input-field">
-                                                <textarea class="form-control" name="message" id="message" required placeholder="Message" maxlength="64"></textarea>
+                                                <textarea class="form-control" name="message" id="message" required placeholder="Message" maxlength="64" style="height: 212px;"></textarea>
                                             </div>
                                             <button class="btn" type="submit">ENCRYPT</button>
                                         </form>
                                     </div>
-                                    <div class="col-md-6 animate" data-animate="fadeInUp">
-                                        <button class="btn" onclick="getRandomKey(32)">RANDOM KEY</button>   
-                                    </div>  
                                 </div>
                             </div>
                         </div>
