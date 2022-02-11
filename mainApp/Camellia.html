@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Camellia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Camellia</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cbp_web_vizualizacia_sa%5Cbp_web_vizualizacia_sa%5Cmainapp%5Ccamellia.py">c:\bp_web_vizualizacia_sa\bp_web_vizualizacia_sa\mainapp\camellia.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="helperFunctions.html">helperFunctions</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Camellia.html#CamelliaBase">CamelliaBase</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CamelliaBase">class <strong>CamelliaBase</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#CamelliaBase">CamelliaBase</a>(keyLenght,&nbsp;key,&nbsp;message)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="CamelliaBase-__init__"><strong>__init__</strong></a>(self, keyLenght, key, message)</dt><dd><tt>Function&nbsp;to&nbsp;initialize&nbsp;class&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+Parameters:<br>
+keyLenght&nbsp;(int):&nbsp;Bit&nbsp;length&nbsp;of&nbsp;given&nbsp;key<br>
+key&nbsp;(string):&nbsp;Key&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;encryption<br>
+message&nbsp;(string):&nbsp;Message&nbsp;to&nbsp;be&nbsp;encrypted</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-evenThenUnvenList"><strong>evenThenUnvenList</strong></a>(listToBeSorted)</dt><dd><tt>Function&nbsp;that&nbsp;rearanges&nbsp;given&nbsp;list&nbsp;by&nbsp;first&nbsp;taking&nbsp;only&nbsp;characters&nbsp;on&nbsp;even&nbsp;indexes&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(0,&nbsp;2,&nbsp;4,&nbsp;6,&nbsp;....)&nbsp;and&nbsp;then&nbsp;characters&nbsp;in&nbsp;uneven&nbsp;characters&nbsp;(1,&nbsp;3,&nbsp;5,&nbsp;7,&nbsp;...)<br>
+&nbsp;<br>
+Parameters:<br>
+listToBeSorted&nbsp;(list):&nbsp;List&nbsp;of&nbsp;characters&nbsp;to&nbsp;be&nbsp;rearanged<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+list:&nbsp;List&nbsp;of&nbsp;characters&nbsp;after&nbsp;rearanging</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-fFunction"><strong>fFunction</strong></a>(self, BitInputToTransform, Key)</dt><dd><tt>Function&nbsp;that&nbsp;converts&nbsp;given&nbsp;input&nbsp;into&nbsp;int,&nbsp;XORs&nbsp;it&nbsp;with&nbsp;given&nbsp;key.&nbsp;Result&nbsp;of&nbsp;these&nbsp;operations<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;then&nbsp;used&nbsp;as&nbsp;input&nbsp;to&nbsp;"S-function"&nbsp;and&nbsp;that&nbsp;result&nbsp;is&nbsp;then&nbsp;used&nbsp;as&nbsp;input&nbsp;into&nbsp;"P-function"&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;of&nbsp;"P-function"&nbsp;is&nbsp;then&nbsp;returned.<br>
+&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+BitInputToTransform&nbsp;(string)&nbsp;:&nbsp;String&nbsp;value&nbsp;for&nbsp;processing<br>
+Key&nbsp;(int)&nbsp;:&nbsp;Given&nbsp;key<br>
+&nbsp;<br>
+Returns:<br>
+output&nbsp;(string)&nbsp;:&nbsp;64-bit&nbsp;long&nbsp;binary&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-flFunction"><strong>flFunction</strong></a>(self, BitInputToTransform, kl)</dt><dd><tt>Function&nbsp;that&nbsp;that&nbsp;takes&nbsp;64-bit&nbsp;long&nbsp;input&nbsp;and&nbsp;given&nbsp;"kl"&nbsp;subkey&nbsp;and&nbsp;splits&nbsp;them&nbsp;into&nbsp;32-bit&nbsp;long&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;and&nbsp;right)&nbsp;parts.&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Right&nbsp;32-bits&nbsp;of&nbsp;output&nbsp;are&nbsp;created&nbsp;by&nbsp;AND-ing&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;input&nbsp;and&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;"kl"&nbsp;subkey.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;of&nbsp;this&nbsp;operation&nbsp;is&nbsp;then&nbsp;rotated&nbsp;in&nbsp;circular&nbsp;fashion&nbsp;by&nbsp;1&nbsp;bit&nbsp;to&nbsp;the&nbsp;left&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;XOR-ed&nbsp;with&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;input.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left&nbsp;32-bits&nbsp;od&nbsp;output&nbsp;are&nbsp;created&nbsp;by&nbsp;OR-ing&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;output&nbsp;created&nbsp;in&nbsp;previous&nbsp;steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;"kl"&nbsp;subkey.&nbsp;Result&nbsp;of&nbsp;this&nbsp;operation&nbsp;is&nbsp;then&nbsp;XOR-ed&nbsp;with&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;input.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+BitInputToTransform&nbsp;(string)&nbsp;:&nbsp;String&nbsp;value&nbsp;for&nbsp;processing<br>
+kl&nbsp;(int)&nbsp;:&nbsp;Given&nbsp;"kl"&nbsp;subkey<br>
+&nbsp;<br>
+Returns:<br>
+string&nbsp;:&nbsp;64-bit&nbsp;long&nbsp;binary&nbsp;string&nbsp;created&nbsp;as&nbsp;concatenation&nbsp;of&nbsp;left&nbsp;and&nbsp;right&nbsp;32&nbsp;bit&nbsp;long<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parts&nbsp;of&nbsp;output</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-flminusFunction"><strong>flminusFunction</strong></a>(self, BitInputToTransform, kl)</dt><dd><tt>Function&nbsp;that&nbsp;that&nbsp;takes&nbsp;64-bit&nbsp;long&nbsp;input&nbsp;and&nbsp;given&nbsp;"kl"&nbsp;subkey&nbsp;and&nbsp;splits&nbsp;them&nbsp;into&nbsp;32-bit&nbsp;long&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;and&nbsp;right)&nbsp;parts.&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left&nbsp;32-bits&nbsp;of&nbsp;output&nbsp;are&nbsp;created&nbsp;by&nbsp;OR-ing&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;input&nbsp;and&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;"kl"&nbsp;subkey.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;of&nbsp;this&nbsp;operation&nbsp;is&nbsp;then&nbsp;XOR-ed&nbsp;with&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;input.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Right&nbsp;32-bits&nbsp;of&nbsp;output&nbsp;are&nbsp;created&nbsp;by&nbsp;AND-ing&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;input&nbsp;and&nbsp;left&nbsp;32&nbsp;bits&nbsp;of&nbsp;"kl"&nbsp;subkey.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;of&nbsp;this&nbsp;operation&nbsp;is&nbsp;then&nbsp;rotated&nbsp;in&nbsp;circular&nbsp;fashion&nbsp;by&nbsp;1&nbsp;bit&nbsp;to&nbsp;the&nbsp;left&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;XOR-ed&nbsp;with&nbsp;right&nbsp;32&nbsp;bits&nbsp;of&nbsp;input.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+BitInputToTransform&nbsp;(string)&nbsp;:&nbsp;String&nbsp;value&nbsp;for&nbsp;processing<br>
+kl&nbsp;(int)&nbsp;:&nbsp;Given&nbsp;"kl"&nbsp;subkey<br>
+&nbsp;<br>
+Returns:<br>
+string&nbsp;:&nbsp;64-bit&nbsp;long&nbsp;binary&nbsp;string&nbsp;created&nbsp;as&nbsp;concatenation&nbsp;of&nbsp;left&nbsp;and&nbsp;right&nbsp;32&nbsp;bit&nbsp;long<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parts&nbsp;of&nbsp;output</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-generateSBoxes"><strong>generateSBoxes</strong></a>(self)</dt><dd><tt>Function&nbsp;that&nbsp;creates&nbsp;S-boxes&nbsp;from&nbsp;first&nbsp;S-box&nbsp;(s1)&nbsp;and&nbsp;returns&nbsp;all&nbsp;four<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;them<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;<br>
+Returns:<br>
+s1&nbsp;(list):&nbsp;First&nbsp;S-box&nbsp;(list&nbsp;of&nbsp;values)<br>
+s2&nbsp;(list):&nbsp;Second&nbsp;S-box&nbsp;(list&nbsp;of&nbsp;values)<br>
+s3&nbsp;(list):&nbsp;Third&nbsp;S-box&nbsp;(list&nbsp;of&nbsp;values)<br>
+s4&nbsp;(list):&nbsp;Fourth&nbsp;S-box&nbsp;(list&nbsp;of&nbsp;values)</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-pFunction"><strong>pFunction</strong></a>(self, BitInputToTransform)</dt><dd><tt>Function&nbsp;that&nbsp;splits&nbsp;64-bit&nbsp;long&nbsp;intput&nbsp;into&nbsp;8-bit&nbsp;long&nbsp;parts,&nbsp;converts&nbsp;them&nbsp;into&nbsp;int&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;XORs&nbsp;them&nbsp;as&nbsp;defined&nbsp;in&nbsp;specification&nbsp;of&nbsp;the&nbsp;cipher<br>
+&nbsp;<br>
+Parameters:<br>
+BitInputToTransform&nbsp;(string):&nbsp;String&nbsp;value&nbsp;for&nbsp;processing<br>
+&nbsp;<br>
+Returns:<br>
+string&nbsp;:&nbsp;64-bit&nbsp;long&nbsp;binary&nbsp;string&nbsp;of&nbsp;XORed&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-rotateRightBy1"><strong>rotateRightBy1</strong></a>(self, numberToBeRotated)</dt><dd><tt>Function&nbsp;that&nbsp;rotates&nbsp;binary&nbsp;value&nbsp;of&nbsp;the&nbsp;given&nbsp;input&nbsp;by&nbsp;one&nbsp;in&nbsp;circular&nbsp;fashion&nbsp;to&nbsp;right<br>
+&nbsp;<br>
+Parameters:<br>
+numberToBeRotated&nbsp;(int):&nbsp;Value&nbsp;to&nbsp;be&nbsp;rotated<br>
+&nbsp;<br>
+Returns:<br>
+int:&nbsp;The&nbsp;input&nbsp;value&nbsp;after&nbsp;rotating</tt></dd></dl>
+
+<dl><dt><a name="CamelliaBase-sFunction"><strong>sFunction</strong></a>(self, BitInputToTransform)</dt><dd><tt>Function&nbsp;that&nbsp;splits&nbsp;64-bit&nbsp;long&nbsp;intput&nbsp;into&nbsp;8-bit&nbsp;long&nbsp;parts,&nbsp;converts&nbsp;them&nbsp;into&nbsp;int&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;uses&nbsp;these&nbsp;values&nbsp;as&nbsp;indexes&nbsp;for&nbsp;substitution&nbsp;using&nbsp;"S-boxes"&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+BitInputToTransform&nbsp;(string):&nbsp;String&nbsp;value&nbsp;for&nbsp;processing<br>
+&nbsp;<br>
+Returns:<br>
+string&nbsp;:&nbsp;64-bit&nbsp;long&nbsp;binary&nbsp;string&nbsp;of&nbsp;substituted&nbsp;values</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

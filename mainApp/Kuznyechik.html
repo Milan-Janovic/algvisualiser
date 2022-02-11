@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Kuznyechik</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Kuznyechik</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cbp_web_vizualizacia_sa%5Cbp_web_vizualizacia_sa%5Cmainapp%5Ckuznyechik.py">c:\bp_web_vizualizacia_sa\bp_web_vizualizacia_sa\mainapp\kuznyechik.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="helperFunctions.html">helperFunctions</a><br>
+</td><td width="25%" valign=top><a href="kuznyechikLinearFunction.html">kuznyechikLinearFunction</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Kuznyechik.html#Kuznyechik">Kuznyechik</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Kuznyechik">class <strong>Kuznyechik</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Kuznyechik">Kuznyechik</a>(key,&nbsp;message)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Kuznyechik-L"><strong>L</strong></a>(self, x)</dt><dd><tt>Function&nbsp;that&nbsp;takes&nbsp;integer&nbsp;value&nbsp;as&nbsp;input&nbsp;and&nbsp;applies&nbsp;function&nbsp;'R'&nbsp;on&nbsp;it&nbsp;16&nbsp;times<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+x&nbsp;(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;initial&nbsp;'x'&nbsp;value&nbsp;after&nbsp;16&nbsp;rounds&nbsp;of&nbsp;'R'&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;were&nbsp;applied&nbsp;in&nbsp;it</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-L_inverse"><strong>L_inverse</strong></a>(self, x)</dt><dd><tt>Inverse&nbsp;function&nbsp;of&nbsp;function&nbsp;'L'&nbsp;above<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+x&nbsp;(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;initial&nbsp;'x'&nbsp;value&nbsp;after&nbsp;16&nbsp;rounds&nbsp;of&nbsp;'L_inverse'&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;were&nbsp;applied&nbsp;in&nbsp;it</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-R"><strong>R</strong></a>(self, x)</dt><dd><tt>Function&nbsp;that&nbsp;takes&nbsp;integer&nbsp;x&nbsp;as&nbsp;input&nbsp;and&nbsp;applies&nbsp;kuznyechik_linear_function&nbsp;on&nbsp;it,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;moves&nbsp;the&nbsp;result&nbsp;to&nbsp;the&nbsp;left&nbsp;by&nbsp;120&nbsp;bits&nbsp;and&nbsp;XORs&nbsp;it&nbsp;with&nbsp;iniatial&nbsp;value&nbsp;of&nbsp;'x'&nbsp;rotated<br>
+&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;8&nbsp;bits&nbsp;to&nbsp;right.<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+a15&nbsp;(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;value&nbsp;'x'</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-R_inverse"><strong>R_inverse</strong></a>(self, x)</dt><dd><tt>Inverse&nbsp;function&nbsp;of&nbsp;function&nbsp;'R'&nbsp;above<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;value&nbsp;'x'</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-S"><strong>S</strong></a>(self, x)</dt><dd><tt>Function&nbsp;that&nbsp;converts&nbsp;given&nbsp;int&nbsp;input&nbsp;"x"&nbsp;into&nbsp;list&nbsp;of&nbsp;16&nbsp;integer&nbsp;values,&nbsp;each<br>
+&nbsp;&nbsp;&nbsp;&nbsp;representing&nbsp;8&nbsp;bits&nbsp;of&nbsp;the&nbsp;input&nbsp;and&nbsp;uses&nbsp;these&nbsp;values&nbsp;as&nbsp;indexes&nbsp;for&nbsp;substitution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;"Pi"&nbsp;vector.<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+out&nbsp;(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;concatenating&nbsp;8-bit&nbsp;long&nbsp;binary&nbsp;values&nbsp;after<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substitution</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-S_inverse"><strong>S_inverse</strong></a>(self, x)</dt><dd><tt>Reverse&nbsp;function&nbsp;of&nbsp;function&nbsp;"S"&nbsp;defined&nbsp;above.&nbsp;Uses&nbsp;same&nbsp;steps&nbsp;as&nbsp;"S"&nbsp;function,&nbsp;but&nbsp;uses&nbsp;"Pi_neg"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;"Pi"&nbsp;vector,&nbsp;which&nbsp;negates&nbsp;substitution&nbsp;done&nbsp;in&nbsp;"S"&nbsp;function<br>
+&nbsp;<br>
+Parameters:<br>
+x&nbsp;(int):&nbsp;Integer&nbsp;value&nbsp;to&nbsp;be&nbsp;processed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+out&nbsp;(int)&nbsp;:&nbsp;Integer&nbsp;value&nbsp;created&nbsp;from&nbsp;concatenating&nbsp;8-bit&nbsp;long&nbsp;binary&nbsp;values&nbsp;after<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'reverse'&nbsp;substitution</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-X"><strong>X</strong></a>(self, k, a)</dt><dd><tt>Function&nbsp;that&nbsp;XORs&nbsp;given&nbsp;input&nbsp;integers&nbsp;and&nbsp;returns&nbsp;the&nbsp;result<br>
+&nbsp;<br>
+Parameters:<br>
+k&nbsp;(int):&nbsp;Integer&nbsp;to&nbsp;be&nbsp;XORed<br>
+a&nbsp;(int):&nbsp;Integer&nbsp;to&nbsp;be&nbsp;XORed<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+int&nbsp;:&nbsp;Result&nbsp;of&nbsp;"k"&nbsp;XOR&nbsp;"a"</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-__init__"><strong>__init__</strong></a>(self, key, message)</dt><dd><tt>Function&nbsp;to&nbsp;initialize&nbsp;class&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+Parameters:<br>
+key&nbsp;(string):&nbsp;Key&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;encryption<br>
+message&nbsp;(string):&nbsp;Message&nbsp;to&nbsp;be&nbsp;encrypted</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-decryptKuznyechik"><strong>decryptKuznyechik</strong></a>(self, CT, key)</dt><dd><tt>Function&nbsp;that&nbsp;encrypts&nbsp;given&nbsp;input&nbsp;with&nbsp;given&nbsp;key&nbsp;using&nbsp;<a href="#Kuznyechik">Kuznyechik</a>&nbsp;algorithm<br>
+&nbsp;<br>
+Parameters:<br>
+CT&nbsp;(int):&nbsp;Cipher&nbsp;text&nbsp;repsented&nbsp;as&nbsp;int&nbsp;value<br>
+key&nbsp;(int):&nbsp;Key&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;decryption&nbsp;represented&nbsp;as&nbsp;int&nbsp;value<br>
+&nbsp;<br>
+Returns:<br>
+OT_list&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;CT&nbsp;for&nbsp;each&nbsp;round</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-encryptKuznyechik"><strong>encryptKuznyechik</strong></a>(self, PT, key)</dt><dd><tt>Function&nbsp;that&nbsp;encrypts&nbsp;given&nbsp;input&nbsp;with&nbsp;given&nbsp;key&nbsp;using&nbsp;<a href="#Kuznyechik">Kuznyechik</a>&nbsp;algorithm<br>
+&nbsp;<br>
+Parameters:<br>
+PT&nbsp;(int):&nbsp;Plain&nbsp;text&nbsp;repsented&nbsp;as&nbsp;int&nbsp;value<br>
+key&nbsp;(int):&nbsp;Key&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;encryption&nbsp;represented&nbsp;as&nbsp;int&nbsp;value<br>
+&nbsp;<br>
+Returns:<br>
+c_list&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;constants&nbsp;used&nbsp;to&nbsp;create&nbsp;subkeys,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;needed&nbsp;for&nbsp;visualisation&nbsp;purposes<br>
+keys&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;sub-keys&nbsp;used&nbsp;for&nbsp;encryption,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;needed&nbsp;for&nbsp;visualisation&nbsp;purposes<br>
+CT_list&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;PT&nbsp;for&nbsp;each&nbsp;round</tt></dd></dl>
+
+<dl><dt><a name="Kuznyechik-generateSubKeys"><strong>generateSubKeys</strong></a>(self, key256)</dt><dd><tt>Function&nbsp;that&nbsp;creates&nbsp;subkeys&nbsp;needed&nbsp;for&nbsp;encryption&nbsp;from&nbsp;initial&nbsp;value&nbsp;of&nbsp;given&nbsp;key<br>
+&nbsp;<br>
+Parameters:<br>
+key256&nbsp;(int):&nbsp;Given&nbsp;key<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+keys&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;subkeys&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;encryption<br>
+c_list&nbsp;(list)&nbsp;:&nbsp;List&nbsp;of&nbsp;integer&nbsp;values&nbsp;of&nbsp;constants&nbsp;used&nbsp;to&nbsp;create&nbsp;subkeys,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;needed&nbsp;for&nbsp;visualisation&nbsp;purposes</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>Pi</strong> = (252, 238, 221, 17, 207, 110, 49, 22, 251, 196, 250, 218, 35, 197, 4, 77, 233, 119, 240, 219, ...)</dl>
+
+<dl><dt><strong>Pi_neg</strong> = (165, 45, 50, 143, 14, 48, 56, 192, 84, 230, 158, 57, 85, 126, 82, 145, 100, 3, 87, 90, ...)</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

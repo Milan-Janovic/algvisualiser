@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ChaCha20</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ChaCha20</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cbp_web_vizualizacia_sa%5Cbp_web_vizualizacia_sa%5Cmainapp%5Cchacha20.py">c:\bp_web_vizualizacia_sa\bp_web_vizualizacia_sa\mainapp\chacha20.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="helperFunctions.html">helperFunctions</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ChaCha20.html#ChaCha20">ChaCha20</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ChaCha20">class <strong>ChaCha20</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ChaCha20">ChaCha20</a>(key,&nbsp;message)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ChaCha20-__init__"><strong>__init__</strong></a>(self, key, message)</dt><dd><tt>Function&nbsp;to&nbsp;initialize&nbsp;class&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+Parameters:<br>
+key&nbsp;(string):&nbsp;Key&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;encryption<br>
+message&nbsp;(string):&nbsp;Message&nbsp;to&nbsp;be&nbsp;encrypted</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-columnRoundFunction"><strong>columnRoundFunction</strong></a>(self, matrix)</dt><dd><tt>Function&nbsp;that&nbsp;calls&nbsp;"quaterRoundFunction"&nbsp;on&nbsp;matrix&nbsp;in&nbsp;column&nbsp;fashion<br>
+&nbsp;<br>
+Parameters:<br>
+matrix&nbsp;(list):&nbsp;4x4&nbsp;matrix&nbsp;created&nbsp;in&nbsp;"generateMatrix"&nbsp;function&nbsp;(values&nbsp;may&nbsp;have&nbsp;changed&nbsp;since&nbsp;creation)<br>
+&nbsp;<br>
+Returns:<br>
+matrix&nbsp;(list):&nbsp;4x4&nbsp;matrix&nbsp;created&nbsp;in&nbsp;"generateMatrix"&nbsp;function&nbsp;after&nbsp;each&nbsp;column<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was&nbsp;changed&nbsp;by&nbsp;calling&nbsp;"quaterRoundFunction"&nbsp;on&nbsp;it</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-decryptChaCha20"><strong>decryptChaCha20</strong></a>(self, CT, constant, key, nonce)</dt><dd><tt>Function&nbsp;that&nbsp;dencrypts&nbsp;given&nbsp;input&nbsp;with&nbsp;given&nbsp;key&nbsp;using&nbsp;ChaCha&nbsp;algorithm<br>
+&nbsp;<br>
+Parameters:<br>
+CT&nbsp;(string):&nbsp;Cipher&nbsp;text&nbsp;converted&nbsp;into&nbsp;binary&nbsp;string<br>
+constant&nbsp;(list):&nbsp;List&nbsp;of&nbsp;four&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;constant&nbsp;in&nbsp;"generateConstantParts"&nbsp;function<br>
+key&nbsp;(list):&nbsp;List&nbsp;of&nbsp;eight&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;key&nbsp;in&nbsp;"splitKey"&nbsp;function<br>
+nonce&nbsp;(list):&nbsp;List&nbsp;of&nbsp;three&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;nonce&nbsp;in&nbsp;"splitNonce"&nbsp;function<br>
+&nbsp;<br>
+Returns:<br>
+PT&nbsp;(list):&nbsp;PT&nbsp;after&nbsp;decryption&nbsp;splitted&nbsp;into&nbsp;32&nbsp;bit&nbsp;long&nbsp;parts<br>
+CT&nbsp;(list):&nbsp;Cipher&nbsp;text&nbsp;splited&nbsp;into&nbsp;list&nbsp;form&nbsp;of&nbsp;32&nbsp;bit&nbsp;long&nbsp;parts&nbsp;and&nbsp;converted&nbsp;into&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-diagonalRoundFunction"><strong>diagonalRoundFunction</strong></a>(self, matrix)</dt><dd><tt>Function&nbsp;that&nbsp;calls&nbsp;"quaterRoundFunction"&nbsp;on&nbsp;matrix&nbsp;in&nbsp;diagonal&nbsp;fashion<br>
+&nbsp;<br>
+Parameters:<br>
+matrix&nbsp;(list):&nbsp;4x4&nbsp;matrix&nbsp;created&nbsp;in&nbsp;"generateMatrix"&nbsp;function&nbsp;(values&nbsp;may&nbsp;have&nbsp;changed&nbsp;since&nbsp;creation)<br>
+&nbsp;<br>
+Returns:<br>
+matrix&nbsp;(list):&nbsp;4x4&nbsp;matrix&nbsp;created&nbsp;in&nbsp;"generateMatrix"&nbsp;function&nbsp;after&nbsp;each&nbsp;diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was&nbsp;changed&nbsp;by&nbsp;calling&nbsp;"quaterRoundFunction"&nbsp;on&nbsp;it</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-encryptChaCha20"><strong>encryptChaCha20</strong></a>(self, PT, constant, key, nonce)</dt><dd><tt>Function&nbsp;that&nbsp;encrypts&nbsp;given&nbsp;input&nbsp;with&nbsp;given&nbsp;key&nbsp;using&nbsp;ChaCha&nbsp;algorithm<br>
+&nbsp;<br>
+Parameters:<br>
+PT&nbsp;(string):&nbsp;Plain&nbsp;text&nbsp;converted&nbsp;into&nbsp;binary&nbsp;string<br>
+constant&nbsp;(list):&nbsp;List&nbsp;of&nbsp;four&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;constant&nbsp;in&nbsp;"generateConstantParts"&nbsp;function<br>
+key&nbsp;(list):&nbsp;List&nbsp;of&nbsp;eight&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;key&nbsp;in&nbsp;"splitKey"&nbsp;function<br>
+nonce&nbsp;(list):&nbsp;List&nbsp;of&nbsp;three&nbsp;integer&nbsp;values&nbsp;created&nbsp;from&nbsp;nonce&nbsp;in&nbsp;"splitNonce"&nbsp;function<br>
+&nbsp;<br>
+Returns:<br>
+CT&nbsp;(list):&nbsp;Cipher&nbsp;text&nbsp;splited&nbsp;into&nbsp;list&nbsp;form&nbsp;of&nbsp;32&nbsp;bit&nbsp;long&nbsp;parts<br>
+matrixFlat&nbsp;(list):&nbsp;Matrix&nbsp;used&nbsp;to&nbsp;encrypt&nbsp;PT&nbsp;into&nbsp;CT,&nbsp;flattened&nbsp;into&nbsp;one&nbsp;dimensional&nbsp;array<br>
+PT&nbsp;(list):&nbsp;PT&nbsp;splitted&nbsp;into&nbsp;32&nbsp;bit&nbsp;long&nbsp;parts&nbsp;and&nbsp;converted&nbsp;into&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-generateConstantParts"><strong>generateConstantParts</strong></a>(self, constant)</dt><dd><tt>Function&nbsp;that&nbsp;takes&nbsp;every&nbsp;four&nbsp;binary&nbsp;values&nbsp;from&nbsp;constant,&nbsp;concatenates&nbsp;them<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;converts&nbsp;created&nbsp;binary&nbsp;value&nbsp;to&nbsp;int<br>
+&nbsp;<br>
+Parameters:<br>
+constant&nbsp;(list):&nbsp;List&nbsp;of&nbsp;binary&nbsp;representations&nbsp;of&nbsp;every&nbsp;character&nbsp;in&nbsp;constant&nbsp;&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+iconstant&nbsp;(list):&nbsp;List&nbsp;of&nbsp;4&nbsp;integer&nbsp;values&nbsp;each&nbsp;created&nbsp;from&nbsp;4&nbsp;of&nbsp;16&nbsp;binary&nbsp;values&nbsp;in&nbsp;constant</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-generateMatrix"><strong>generateMatrix</strong></a>(self, constant, key, blockNumber, nonce)</dt><dd><tt>Function&nbsp;that&nbsp;generates&nbsp;matrix&nbsp;as&nbsp;specificed&nbsp;in&nbsp;ChaCha&nbsp;documentation<br>
+&nbsp;<br>
+Parameters:<br>
+iconstant&nbsp;(list):&nbsp;List&nbsp;of&nbsp;four&nbsp;32&nbsp;bit&nbsp;values&nbsp;of&nbsp;constants&nbsp;(in&nbsp;integer&nbsp;representation)<br>
+ikey&nbsp;(list):&nbsp;List&nbsp;of&nbsp;eight&nbsp;32&nbsp;bit&nbsp;values&nbsp;of&nbsp;key&nbsp;(in&nbsp;integer&nbsp;representation)<br>
+blockNumber&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;block&nbsp;for&nbsp;encryption&nbsp;(in&nbsp;our&nbsp;case&nbsp;is&nbsp;always&nbsp;1)<br>
+inonce&nbsp;(list):&nbsp;List&nbsp;of&nbsp;three&nbsp;32&nbsp;bit&nbsp;values&nbsp;of&nbsp;nonce&nbsp;(in&nbsp;integer&nbsp;representation)<br>
+&nbsp;<br>
+Returns:<br>
+matirx&nbsp;(list):&nbsp;4x4&nbsp;matrix&nbsp;as&nbsp;specificed&nbsp;in&nbsp;ChaCha&nbsp;documentation</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-getRandomNumber96Bits"><strong>getRandomNumber96Bits</strong></a>(self)</dt><dd><tt>Function&nbsp;that&nbsp;creates&nbsp;12&nbsp;random&nbsp;values&nbsp;and&nbsp;pads&nbsp;them&nbsp;to&nbsp;be&nbsp;8&nbsp;bits&nbsp;long,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;creates&nbsp;96&nbsp;bit&nbsp;long&nbsp;value&nbsp;by&nbsp;concatenating&nbsp;them<br>
+&nbsp;<br>
+Parameters:<br>
+key&nbsp;(string):&nbsp;String&nbsp;consisting&nbsp;of&nbsp;256&nbsp;bits&nbsp;of&nbsp;key<br>
+&nbsp;<br>
+Returns:<br>
+n&nbsp;(string):&nbsp;96&nbsp;bit&nbsp;long&nbsp;value&nbsp;(created&nbsp;as&nbsp;stated&nbsp;before)</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-processConstant"><strong>processConstant</strong></a>(self)</dt><dd><tt>Function&nbsp;to&nbsp;convert&nbsp;each&nbsp;character&nbsp;in&nbsp;costant&nbsp;to&nbsp;its&nbsp;binary&nbsp;representation&nbsp;based<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;its&nbsp;ASCII&nbsp;value<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;<br>
+Returns:<br>
+list:&nbsp;List&nbsp;of&nbsp;binary&nbsp;representations&nbsp;of&nbsp;every&nbsp;character&nbsp;in&nbsp;constant</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-quaterRoundFunction"><strong>quaterRoundFunction</strong></a>(self, a, b, c, d)</dt><dd><tt>Function&nbsp;used&nbsp;on&nbsp;matrix&nbsp;in&nbsp;rounds&nbsp;in&nbsp;order&nbsp;to&nbsp;change&nbsp;certain&nbsp;elements&nbsp;from&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(by&nbsp;using&nbsp;algebraic&nbsp;and&nbsp;bit-wise&nbsp;operations&nbsp;on&nbsp;the&nbsp;element)&nbsp;depending&nbsp;on&nbsp;round<br>
+&nbsp;<br>
+Parameters:<br>
+a&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix<br>
+b&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix<br>
+c&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix<br>
+d&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix<br>
+&nbsp;<br>
+Returns:<br>
+a&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix&nbsp;after&nbsp;change<br>
+b&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix&nbsp;after&nbsp;change<br>
+c&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix&nbsp;after&nbsp;change<br>
+d&nbsp;(int):&nbsp;One&nbsp;of&nbsp;elements&nbsp;from&nbsp;matrix&nbsp;after&nbsp;change</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-splitKey"><strong>splitKey</strong></a>(self, key)</dt><dd><tt>Function&nbsp;that&nbsp;splits&nbsp;256&nbsp;bits&nbsp;long&nbsp;key&nbsp;into&nbsp;eight&nbsp;32&nbsp;bit&nbsp;long&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;converts&nbsp;them&nbsp;to&nbsp;int&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+key&nbsp;(string):&nbsp;String&nbsp;consisting&nbsp;of&nbsp;256&nbsp;bits&nbsp;of&nbsp;key<br>
+&nbsp;<br>
+Returns:<br>
+ikey&nbsp;(list):&nbsp;List&nbsp;of&nbsp;8&nbsp;integer&nbsp;values&nbsp;each&nbsp;created&nbsp;from&nbsp;32&nbsp;bits&nbsp;of&nbsp;256&nbsp;bits&nbsp;long&nbsp;key</tt></dd></dl>
+
+<dl><dt><a name="ChaCha20-splitNonce"><strong>splitNonce</strong></a>(self, nonce)</dt><dd><tt>Function&nbsp;that&nbsp;splits&nbsp;96&nbsp;bits&nbsp;long&nbsp;nonce&nbsp;into&nbsp;three&nbsp;32&nbsp;bit&nbsp;long&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;converts&nbsp;them&nbsp;to&nbsp;int&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+nonce&nbsp;(string):&nbsp;String&nbsp;consisting&nbsp;of&nbsp;96&nbsp;bits&nbsp;of&nbsp;nonce<br>
+&nbsp;<br>
+Returns:<br>
+inonce&nbsp;(list):&nbsp;List&nbsp;of&nbsp;3&nbsp;integer&nbsp;values&nbsp;each&nbsp;created&nbsp;from&nbsp;32&nbsp;bits&nbsp;of&nbsp;96&nbsp;bits&nbsp;long&nbsp;nonce</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
