@@ -134,7 +134,7 @@ def camellia(request):
                 "PTLs6" : PTLs[0],
                 "PTRs6" : PTRs[0],
                 "PTLs24" : PTLs[1],
-                "PTRs18" : PTRs[1],
+                "PTRs24" : PTRs[1],
                 "CT_final" : int(Cipher,2),
                 "CT_final_ASCII" : Cipher_ASCII,
                 "PTL_init_decipher" : int(PTL_init_decipher,2),

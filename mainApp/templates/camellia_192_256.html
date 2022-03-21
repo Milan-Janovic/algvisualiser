@@ -79,7 +79,7 @@
                 <div class="section-inner">
                     <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
                         <span>Entered data are firstly converted to binary and paded to desired length of 128 bits 
-                            (using integer representation).</span>
+                            (here we are using integer representation).</span>
                     </div>
                     <div class="row justify-content-center" style="padding-top: 30px" >
                         <div class="col-md-5">
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <div class="arrow-row" style="font-size: 20px;" data-animate="fadeInUp">
-                        <span>We will use integer representation further on, but remember that operations like XOR or shifts are done in bitwise manner.</span>
+                        <span>We will use integer representation further on, but operations like XORs or shifts are done in bitwise manner.</span>
                     </div>
                 </div>
             </div>
@@ -289,8 +289,10 @@
                         <div class="col-md-6">
                             <div class="arrow-row" style="font-size: 15px;" data-animate="fadeInUp">
                                 <span>Firstly, we split key <strong>K</strong> into left <strong>KL</strong> and right <strong>KR</strong> part.</span> <br>
-                                <span>In case of 256 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong> is equal to <strong>right 128 bits</strong> of <strong> K.</strong></span>
-                                <span>In case of 192 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong> is equal to <strong>right 64 bits</strong> + <strong> negation of right 64 bits</strong> of <strong>K.</strong></span> <br>
+                                <span>In case of 256 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong>
+                                     is equal to <strong>right 128 bits</strong> of <strong> K.</strong></span>
+                                <span>In case of 192 bit key <strong>KL</strong> is equal to <strong>left 128 bits</strong> of <strong>K</strong> and <strong>KR</strong>
+                                     is equal to <strong>right 64 bits</strong> + <strong> negation of right 64 bits</strong> of <strong>K.</strong></span> <br>
                                 <span> This is done to ensure compatibility of 192 and 256 bit keys</span>
                             </div>
                             <div class="arrow-row">
@@ -316,9 +318,12 @@
                                 </div>
                             </div>
                             <div class="arrow-row">
-                                <span>Then we put <strong>KLL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants0-1</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>. 
-                                    Next we <strong>XOR</strong> concatenated <stong>KLL</stong> and <strong>KLR</strong> with <strong>KL</strong> from <strong>begining</strong> of this process and split newly obtained <strong>KL</strong> back to <strong>KLL</strong> and <strong>KLR</strong>.
-                                    Lastly we repeat <strong>2 iterations</strong> long process of putting <strong>KLL</strong> through <strong>F-function</strong> with <strong>constants2-4</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>.
+                                <span>Then we put <strong>KLL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants0-1</strong> 
+                                    and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>. 
+                                    Next we <strong>XOR</strong> concatenated <stong>KLL</stong> and <strong>KLR</strong> with <strong>KL</strong> from <strong>begining</strong> 
+                                    of this process and split newly obtained <strong>KL</strong> back to <strong>KLL</strong> and <strong>KLR</strong>.
+                                    Lastly we repeat <strong>2 iterations</strong> long process of putting <strong>KLL</strong> through <strong>F-function</strong> with <strong>constants2-4</strong> 
+                                    and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KLR</strong> and swap <strong>KLL</strong> and <strong>KLR</strong>.
                                     <strong> Ka</strong> is obtained as concatenation of <strong>KLL</strong> and <strong>KLR</strong>
                             </div>
                             <div class="contact-section">
@@ -340,7 +345,7 @@
                         <div class="col-md-6 wide-col-laptop">
                             <div class="arrow-row" style="font-size: 15px;" data-animate="fadeInUp">
                                 <span><strong>Kb</strong> key is generated in very simial fashion. 
-                                    Firstly we <strong>XOR</strong> <strong>Ka</strong> and <strong>KR</strong> and we separate this result (KR) to <strong>KRL</strong> and <strong>KRR</strong></span>
+                                    Firstly we <strong>XOR</strong> <strong>Ka</strong> and <strong>KR</strong> and we split this result (KR) to <strong>KRL</strong> and <strong>KRR</strong></span>
                             </div>
                             <div class="contact-section">
                                 <div class="row">
@@ -361,7 +366,8 @@
                                 </div>
                             </div>
                             <div class="arrow-row">
-                                <span>Then we put <strong>KRL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants5-6</strong> and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KRR</strong> and swap <strong>KRL</strong> and <strong>KRR</strong>.
+                                <span>Then we put <strong>KRL</strong> through <strong>F-function</strong> in <strong>2 iterations</strong> with <strong>constants5-6</strong> 
+                                    and after every <strong>F-function</strong> we <strong>XOR</strong> it's result with <strong>KRR</strong> and swap <strong>KRL</strong> and <strong>KRR</strong>.
                                     After that we concatenate <strong>KRL</strong> and <strong>KRR</strong> to obtain <strong>Kb</strong>.
                             </div>
                             <div class="contact-section">
@@ -901,7 +907,7 @@
                                 </div>
                             </div>
                             <div class="arrow-row">
-                                <span>We repeat this entire process <strong>2</strong> more times.</span>
+                                <span>We repeat this entire process <strong>3</strong> more times.</span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -934,14 +940,14 @@
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTL18 = {{PTRs24}}
+                                                PTL24 = {{PTRs24}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTR18 = {{PTLs24}}
+                                                PTR24 = {{PTLs24}}
                                             </div>
                                         </div>
                                     </div>
@@ -1002,32 +1008,34 @@
                                 </div>
                             </div>
                             <div class="arrow-row">
-                                <span>Next we repeat the encryption process in reverse order so we put <strong>PTL</strong> throught <strong>F-function 18</strong> times with <strong>kl18-1</strong> subkeys, each time we XOR the result of <strong>F-function</strong> with <strong>PTR18-1</strong>.</span>
+                                <span>Next we repeat the encryption process in reverse order so we put <strong>PTL</strong> throught <strong>F-function 24</strong> times with <strong>kl24-1</strong> subkeys, 
+                                    each time we XOR the result of <strong>F-function</strong> with <strong>PTR18-1</strong>.</span>
                                 <br>
                                 <span>Then we swap <strong>PTL</strong> and <strong>PTR</strong>, same way we did in case of <strong>Ka</strong> key generation.</span>
                                 <br>
-                                <span>Remember that after every six iterations of putting PTL throught <strong>F-function</strong>, XOR-ing the result with <strong>PTR</strong> and swaping <strong>PTL</strong> and <strong>PTR</strong> we put <strong>PTL</strong> through <strong>FL-function</strong> and <strong>PTR</strong> through <strong>FL-1-function</strong>.</span>
+                                <span>Remember that after every six iterations of putting PTL throught <strong>F-function</strong>, XOR-ing the result with <strong>PTR</strong> and swaping <strong>PTL</strong> 
+                                    and <strong>PTR</strong> we put <strong>PTL</strong> through <strong>FL-function</strong> and <strong>PTR</strong> through <strong>FL-1-function</strong>.</span>
                             </div>
                             <div class="contact-section">
                                 <div class="row">
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTL18 = {{PTL_init_decipher}}
+                                                PTL24 = {{PTL_init_decipher}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTR18 = {{PTR_init_decipher}}
+                                                PTR24 = {{PTR_init_decipher}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="arrow-row" data-animate="fadeInUp">
-                                <i class="fa fa-ellipsis-v  "></i> 18
+                                <i class="fa fa-ellipsis-v  "></i> 24
                             </div>
                             <div class="contact-section" style="padding-top: 20px;">
                                 <div class="row">
@@ -1041,7 +1049,7 @@
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTR1 = {{PTRs1_decipher}}
+                                                PTR1 = {{PTRs1_deciphFer}}
                                             </div>
                                         </div>
                                     </div>
@@ -1078,21 +1086,21 @@
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTL18 = {{PTL_final_decipher}}
+                                                PTL1 = {{PTL_final_decipher}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 animate" data-animate="fadeInUp">
                                         <div class="contact-box">
                                             <div class="contact-row">
-                                                PTR18 = {{PTR_final_decipher}}
+                                                PTR1 = {{PTR_final_decipher}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="arrow-row">
-                                <span>Lastly we concatenate the results to obtain cipher text <strong>CT</strong><span>
+                                <span>Lastly we concatenate the results to obtain plain text <strong>PT</strong><span>
                             </div>
                             <div class="contact-section">
                                 <div class="row">
