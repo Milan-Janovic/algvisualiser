@@ -307,8 +307,8 @@ class Camellia192_256(Camellia.CamelliaBase):
             
         PTL, PTR = PTR, PTL
             
-        PTL = helperFunctions.pad(bin(int(PTL,2) ^ int(kw[0],2))[2:],64)
-        PTR = helperFunctions.pad(bin(int(PTR,2) ^ int(kw[1],2))[2:],64)
+        PTL = helperFunctions.pad(bin(int(PTL,2) ^ int(kw[1],2))[2:],64)
+        PTR = helperFunctions.pad(bin(int(PTR,2) ^ int(kw[0],2))[2:],64)
 
         PTLs_decipher.append(int(PTL,2))
         PTRs_decipher.append(int(PTR,2))
