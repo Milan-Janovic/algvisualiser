@@ -139,8 +139,10 @@ def camellia(request):
                 "CT_final_ASCII" : Cipher_ASCII,
                 "PTL_init_decipher" : int(PTL_init_decipher,2),
                 "PTR_init_decipher" : int(PTR_init_decipher,2),
-                "PTLs1_decipher" : PTLs_decipher[0],
-                "PTRs1_decipher" : PTRs_decipher[0],
+                "PTLs0_decipher" : PTLs_decipher[0],
+                "PTRs0_decipher" : PTRs_decipher[0],
+                "PTLs1_decipher" : PTLs_decipher[1],
+                "PTLr1_decipher" : PTRs_decipher[1],
                 "PT_final" : int(PtDecipher,2),
                 "PT_final_ASCII" : PtDecipher_ASCII
             }
