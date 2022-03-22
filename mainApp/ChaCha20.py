@@ -79,10 +79,7 @@ class ChaCha20():
                 
         """ Function that creates 12 random values and pads them to be 8 bits long,
             then creates 96 bit long value by concatenating them
-
-        Parameters:
-        key (string): String consisting of 256 bits of key
-
+            
         Returns:
         n (string): 96 bit long value (created as stated before)
         
