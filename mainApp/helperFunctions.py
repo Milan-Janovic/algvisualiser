@@ -1,3 +1,5 @@
+import unicodedata
+
 def pad(inputToPad, padTo):
 
     """ Function that pads given bit string to desired length by adding 0
@@ -34,6 +36,9 @@ def processInput(Key, Message):
 
     """
 
+
+    Message = strip(Message)
+    Key = strip(Key)
     key = list(Key)
     key_ascii = ''.join([pad(bin(ord(char))[2:],8) for char in key])
     message = list(Message)
@@ -100,3 +105,25 @@ def getCharactersKuznyechik(binaryValueToConvert):
         integerToConvert[i] = integerToConvert[i][::-1]
     integerToConvertASCII = [chr(int(integer,2)) for integer in integerToConvert]
     return ''.join(integerToConvertASCII)[::-1]
+
+
+def strip(input_to_strip):
+    
+    """ Function that changes punctuated characters to their closest ASCII reprezentation (normalizes them)
+
+    Parameters:
+    input_to_strip (str): Value to be processed
+
+    Returns:
+    str: The input value after processing
+
+    """
+
+    try:
+        input_to_strip = unicode(input_to_strip, 'utf-8')
+    except NameError:
+        pass
+
+    input_to_strip = unicodedata.normalize('NFD', input_to_strip).encode('ascii', 'ignore').decode("utf-8") 
+
+    return str(input_to_strip)

@@ -48,9 +48,9 @@ def camellia(request):
 
             content = {
                 "keyLenght" : request.POST.get('keyLength'),
-                "key" : request.POST.get('Key'),
+                "key" : helperFunctions.strip(request.POST.get('Key')),
                 "key_binary" : int(key,2),
-                "message" : request.POST.get('message'),
+                "message" : helperFunctions.strip(request.POST.get('message')),
                 "message_binary" : int(message,2),
                 "keyL" : int(key128[:64],2),
                 "keyR" : int(key128[64:],2),
@@ -115,9 +115,9 @@ def camellia(request):
 
             content = {
                 "keyLenght" : request.POST.get('keyLength'),
-                "key" : request.POST.get('Key'),
+                "key" : helperFunctions.strip(request.POST.get('Key')),
                 "key_binary" : str(int(key192_256,2))[:50] + ".....",
-                "message" : request.POST.get('message'),
+                "message" : helperFunctions.strip(request.POST.get('message')),
                 "message_binary" : int(message,2),
                 "KLL1" : KLLs[0],
                 "KLR1" : KLRs[0],
@@ -186,9 +186,9 @@ def chacha20(request):
         msg_int = msg_int[:50] + "......"
     
     content = {
-        "key" : request.POST.get('Key'),
+        "key" : helperFunctions.strip(request.POST.get('Key')),
         "key_binary" : str(int(key,2))[:50] + "......",
-        "message" : msg,
+        "message" : helperFunctions.strip(msg),
         "message_binary" : msg_int,
         "constant_initial" : int(constant_initial,2),
         "constant_integer" : constant_integer,
@@ -226,8 +226,8 @@ def kuznyechik(request):
         OT_list = kuznyechik.decryptKuznyechik(CT_list[9], key_int)
      
         content = {
-            "message": request.POST.get('message'), 
-            "key" : request.POST.get('Key'),
+            "message": helperFunctions.strip(request.POST.get('message')), 
+            "key" : helperFunctions.strip(request.POST.get('Key')),
             "message_int" : message_int,
             "key_int" : str(key_int)[:50] + "......",
             "c_list" : c_list,
